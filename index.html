@@ -6,57 +6,67 @@
 <title>איפה המקום שלי?</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Suez+One&family=Assistant:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Assistant:wght@400;600;700;800&display=swap">
 <style>
-/* Layout: one centered column, a stepper that moves intro → 6 questions → personal profile + compass + checklist */
+/* Layout: one column like the campaign's navy "מקום" cards; stepper intro → 6 questions → profile, compass, checklist */
 :root {
-  --bg: #f4f6fa;
+  --bg: #f6f7f3;
   --surface: #ffffff;
-  --ink: #1b2233;
-  --muted: #5d6679;
-  --line: #dde2ec;
-  --accent: #1d3f72;
-  --p1: #1f6fb2; --p1-soft: #e3eef9;
-  --p2: #d9701a; --p2-soft: #fcecdd;
-  --p3: #7447b0; --p3-soft: #eee6f8;
-  --p4: #cc3a66; --p4-soft: #fae3ea;
-  --p5: #23895d; --p5-soft: #dff2e8;
-  --display: "Suez One", "Assistant", "Arial Hebrew", serif;
+  --ink: #1b3347;
+  --muted: #5b6b78;
+  --line: #dce3e6;
+  --navy: #1d4562;
+  --on-navy: #ffffff;
+  --yellow: #f7b51e;
+  --accent: #1d4562;
+  --p1: #c98600; --p1-soft: #fdf1d3;
+  --p2: #2a6cc9; --p2-soft: #e2ecfa;
+  --p3: #13808a; --p3-soft: #ddf1f1;
+  --p4: #3a8f3c; --p4-soft: #e3f2df;
+  --p5: #c2487e; --p5-soft: #f9e3ee;
+  --display: "Fredoka", "Assistant", "Arial Hebrew", sans-serif;
   --body: "Assistant", "Arial Hebrew", "Segoe UI", Arial, sans-serif;
   --radius: 14px;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --bg: #11141c; --surface: #1a1f2b; --ink: #e8ebf2; --muted: #9aa3b6; --line: #2c3344; --accent: #9cbcf0;
-  --p1: #5ea4e6; --p1-soft: #1a2c40; --p2: #f0994f; --p2-soft: #3a2817; --p3: #ad8be0; --p3-soft: #2c2340;
-  --p4: #ec7397; --p4-soft: #3d1f2a; --p5: #5cc795; --p5-soft: #173326; color-scheme: dark; } }
+  --bg: #0f1c26; --surface: #172836; --ink: #e9eff3; --muted: #9db0bd; --line: #2a3e4e;
+  --navy: #1d4562; --on-navy: #ffffff; --yellow: #f7b51e; --accent: #f7b51e;
+  --p1: #f5bf3d; --p1-soft: #3a2e12; --p2: #6ea3ef; --p2-soft: #182c47; --p3: #4cc0c8; --p3-soft: #123437;
+  --p4: #6fc56f; --p4-soft: #183319; --p5: #ec7fad; --p5-soft: #3b1a2a; color-scheme: dark; } }
 :root[data-theme="dark"] {
-  --bg: #11141c; --surface: #1a1f2b; --ink: #e8ebf2; --muted: #9aa3b6; --line: #2c3344; --accent: #9cbcf0;
-  --p1: #5ea4e6; --p1-soft: #1a2c40; --p2: #f0994f; --p2-soft: #3a2817; --p3: #ad8be0; --p3-soft: #2c2340;
-  --p4: #ec7397; --p4-soft: #3d1f2a; --p5: #5cc795; --p5-soft: #173326; color-scheme: dark; }
+  --bg: #0f1c26; --surface: #172836; --ink: #e9eff3; --muted: #9db0bd; --line: #2a3e4e;
+  --navy: #1d4562; --on-navy: #ffffff; --yellow: #f7b51e; --accent: #f7b51e;
+  --p1: #f5bf3d; --p1-soft: #3a2e12; --p2: #6ea3ef; --p2-soft: #182c47; --p3: #4cc0c8; --p3-soft: #123437;
+  --p4: #6fc56f; --p4-soft: #183319; --p5: #ec7fad; --p5-soft: #3b1a2a; color-scheme: dark; }
 
 * { box-sizing: border-box; }
 body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 18px; line-height: 1.6; }
-.wrap { max-width: 760px; margin: 0 auto; padding-block: 28px 56px;
+.wrap { max-width: 760px; margin: 0 auto; padding-block: 24px 56px;
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.2; text-wrap: balance; margin: 0; }
-h1 { font-size: clamp(2rem, 6vw, 3rem); }
-h2 { font-size: clamp(1.45rem, 4vw, 1.9rem); }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2rem, 6vw, 2.8rem); }
+h2 { font-size: clamp(1.4rem, 4vw, 1.8rem); }
 h3 { font-size: 1.25rem; }
 p { margin: 0; }
 .muted { color: var(--muted); }
 .stack { display: flex; flex-direction: column; gap: 16px; }
-.eyebrow { font-weight: 700; font-size: .85rem; letter-spacing: .04em; color: var(--accent); }
+.eyebrow { font-weight: 800; font-size: .9rem; letter-spacing: .03em; color: var(--accent); }
 
 button { font: inherit; cursor: pointer; }
-button:focus-visible, textarea:focus-visible, input:focus-visible, label:focus-within { outline: 3px solid var(--accent); outline-offset: 2px; }
-.btn { border: 0; border-radius: 999px; padding: 12px 26px; font-weight: 700; background: var(--accent); color: var(--surface); }
+button:focus-visible, textarea:focus-visible, input:focus-visible, label:focus-within { outline: 3px solid var(--yellow); outline-offset: 2px; }
+.btn { border: 0; border-radius: 999px; padding: 12px 28px; font-weight: 800; background: var(--yellow); color: #1d4562; }
 .btn:disabled { opacity: .35; cursor: not-allowed; }
 .btn.ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
 .btn.small { padding: 7px 16px; font-size: .9rem; }
 
-/* intro */
-.hero { display: flex; flex-direction: column; gap: 18px; padding-block: 12px 8px; }
-.hero .tag { font-family: var(--display); font-size: 1.2rem; color: var(--accent); }
+/* intro: navy card echoing the campaign */
+.card-navy { background: var(--navy); color: var(--on-navy); border-radius: 18px; padding: 30px 24px; display: flex; flex-direction: column; gap: 14px; }
+.card-navy .big { font-family: var(--display); font-weight: 700; font-size: clamp(3.2rem, 14vw, 5.2rem); line-height: .95; }
+.card-navy .y { color: var(--yellow); }
+.card-navy .line { font-family: var(--display); font-weight: 600; font-size: clamp(1.25rem, 4.5vw, 1.6rem); line-height: 1.25; }
+.card-navy p { color: #dfe8ee; }
+.event { display: inline-flex; flex-wrap: wrap; gap: 4px 10px; font-weight: 700; font-size: .95rem; color: var(--on-navy); }
+.event b { color: var(--yellow); }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 10px; border-radius: 999px; font-weight: 700; font-size: .95rem; }
 .chip svg { width: 22px; height: 22px; flex: none; }
@@ -64,16 +74,16 @@ button:focus-visible, textarea:focus-visible, input:focus-visible, label:focus-w
 /* question */
 .progress { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
 .progress span { height: 6px; border-radius: 3px; background: var(--line); }
-.progress span.done { background: var(--accent); }
+.progress span.done { background: var(--yellow); }
 .qhead { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 .options { display: flex; flex-direction: column; gap: 10px; }
 .opt { display: flex; align-items: center; gap: 14px; width: 100%; text-align: right; padding: 14px 16px; border-radius: var(--radius);
   background: var(--surface); color: var(--ink); border: 2px solid var(--line); transition: border-color .15s, background .15s; }
 .opt:hover { border-color: var(--muted); }
 .opt .box { width: 24px; height: 24px; border-radius: 7px; border: 2px solid var(--line); flex: none; display: grid; place-items: center; }
-.opt[aria-pressed="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 9%, var(--surface)); }
-.opt[aria-pressed="true"] .box { background: var(--accent); border-color: var(--accent); }
-.opt[aria-pressed="true"] .box::after { content: ""; width: 10px; height: 6px; border: 3px solid var(--surface); border-top: 0; border-right: 0; transform: rotate(-45deg) translate(1px,-1px); }
+.opt[aria-pressed="true"] { border-color: var(--yellow); background: color-mix(in srgb, var(--yellow) 14%, var(--surface)); }
+.opt[aria-pressed="true"] .box { background: var(--yellow); border-color: var(--yellow); }
+.opt[aria-pressed="true"] .box::after { content: ""; width: 10px; height: 6px; border: 3px solid #1d4562; border-top: 0; border-right: 0; transform: rotate(-45deg) translate(1px,-1px); }
 .opt.locked { opacity: .45; }
 .nav { display: flex; justify-content: space-between; gap: 12px; }
 .hint { font-size: .95rem; min-height: 1.6em; }
@@ -87,12 +97,11 @@ button:focus-visible, textarea:focus-visible, input:focus-visible, label:focus-w
 .bar .track { height: 12px; border-radius: 6px; background: var(--line); overflow: hidden; }
 .bar .fill { height: 100%; border-radius: 6px; transition: width .6s ease; }
 .bar .n { font-weight: 800; font-variant-numeric: tabular-nums; text-align: center; }
-.bar.top .lbl::after { content: none; }
 
 .profile { border-radius: var(--radius); padding: 22px; display: flex; flex-direction: column; gap: 14px; border: 2px solid; background: var(--surface); }
 .profile .ph { display: flex; align-items: center; gap: 14px; }
 .profile .ph svg { width: 54px; height: 54px; flex: none; }
-.profile .ph .kicker { font-weight: 700; font-size: .9rem; }
+.profile .ph .kicker { font-weight: 800; font-size: .95rem; }
 .profile ul { margin: 0; padding-inline-start: 22px; display: flex; flex-direction: column; gap: 2px; }
 .profile h4 { margin: 0; font-size: 1rem; }
 .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
@@ -103,7 +112,7 @@ button:focus-visible, textarea:focus-visible, input:focus-visible, label:focus-w
 .add[disabled] { opacity: .6; cursor: default; }
 
 details.more { border-top: 1px solid var(--line); }
-details.more summary { cursor: pointer; padding: 14px 0; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+details.more summary { cursor: pointer; padding: 14px 0; font-weight: 700; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 details.more summary svg { width: 26px; height: 26px; }
 details.more .profile { margin-bottom: 14px; }
 
@@ -112,81 +121,104 @@ details.more .profile { margin-bottom: 14px; }
 textarea { font: inherit; font-size: 1rem; width: 100%; min-height: 70px; resize: vertical; border: 1.5px solid var(--line); border-radius: 10px; padding: 10px 12px; background: var(--bg); color: var(--ink); }
 .checklist { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px 18px; }
 .checklist label { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; border-radius: 6px; }
-.checklist input { width: 20px; height: 20px; margin-top: 4px; accent-color: var(--accent); flex: none; }
+.checklist input { width: 20px; height: 20px; margin-top: 4px; accent-color: var(--p4); flex: none; }
 .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
-.closing { font-family: var(--display); font-size: 1.35rem; text-align: center; color: var(--accent); text-wrap: balance; padding-block: 8px; }
-.toast { font-weight: 700; color: var(--p5); }
+.closing { text-align: center; }
+.toast { font-weight: 700; color: var(--p4); }
+
+/* campaign graphics */
+.topbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 18px; }
+.logo { background: #ffffff; border-radius: 12px; padding: 6px 10px; display: inline-flex; box-shadow: 0 1px 0 var(--line); }
+.logo img { height: 54px; width: auto; display: block; }
+.wordmark { font-family: var(--display); font-weight: 700; font-size: 1.15rem; color: var(--ink); line-height: 1; text-align: left; }
+.wordmark b { color: var(--p4); font-weight: 700; }
+.chairs { background-color: var(--bg); background-image: var(--chairs); background-size: 230px 230px; border-radius: 20px; padding: 44px 34px; }
+.chairs > .card-navy { box-shadow: 0 0 0 8px color-mix(in srgb, var(--bg) 55%, transparent); }
+.qmarks { display: inline-flex; gap: 2px; font-family: var(--display); font-weight: 700; font-size: 1.6rem; line-height: 1; }
+.qmarks span:nth-child(1) { color: var(--p2); transform: rotate(-14deg); }
+.qmarks span:nth-child(2) { color: var(--yellow); transform: rotate(10deg) translateY(-6px); }
+.qmarks span:nth-child(3) { color: var(--p4); transform: rotate(-6deg); }
+.qtitle { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.awards { display: flex; gap: 6px; justify-content: center; }
+.awards svg { width: 34px; height: 34px; }
+@media (max-width: 480px) { .chairs { padding: 34px 22px; background-size: 170px 170px; } .logo img { height: 44px; } }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
 </head>
 <body>
 
-<div class="wrap" id="app"></div>
+<div class="wrap">
+  <header class="topbar">
+    <span class="logo"><img src="data:image/png;base64,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" alt="מועצה אזורית מטה בנימין"></span>
+    <span class="wordmark">עושים מקום<br><b>לכולם</b> בבנימין</span>
+  </header>
+  <div id="app"></div>
+</div>
 
 <script>
 const P = {
-  a: { name: "מקום לצמוח ולהצטיין", c: "p1",
-    text: "חשוב לך ללמוד, להתקדם, להתמודד עם אתגרים ולמצות את היכולות שלך. כדאי לך לחפש בית ספר שיפתח בפניך אופקים ויעודד אותך להגיע רחוק.",
+  a: { name: "מקום לשאוף גבוה", tag: "יש מקום למצוינות? ברור.", c: "p1",
+    text: "חשוב לכם ללמוד, להתקדם, להתמודד עם אתגרים ולמצות את היכולות שלכם. חפשו בית ספר שיפתח לכם אופקים ויעודד אתכם להגיע רחוק.",
     check: ["מגמות ומסלולי לימוד", "תוכניות מצוינות והעשרה", "אפשרויות להתקדמות ולהעמקה"],
     ask: ["אילו מגמות ותוכניות מצוינות יש אצלכם?", "איך אתם מקדמים תלמידים שרוצים ללמוד מעבר לנדרש?"],
     icon: '<path d="M6 34 L18 18 L25 26 L34 12" /><path d="M27 12 H34 V19" /><path d="M6 38 H38" />' },
-  b: { name: "מקום להרגיש שייך", c: "p2",
-    text: "חשוב לך להרגיש חלק מקבוצה, ליצור חברויות וליהנות מחוויות משותפות. האווירה החברתית היא חלק משמעותי מחוויית הלמידה שלך.",
-    check: ["האווירה החברתית", "פעילויות, טיולים ומסעות", "השתלבות תלמידים חדשים", "חיי הפנימייה, אם קיימת"],
-    ask: ["איך עוזרים לתלמידים חדשים להשתלב?", "אילו פעילויות חברתיות מתקיימות במהלך השנה?"],
+  b: { name: "מקום להרגיש שייכים", tag: "ועם מי הולכים? זה חשוב.", c: "p2",
+    text: "חשוב לכם להרגיש חלק מקבוצה, ליצור חברויות וליהנות מחוויות משותפות. האווירה החברתית היא חלק גדול ממה שאתם מחפשים.",
+    check: ["האווירה החברתית", "פעילויות, טיולים ומסעות", "איך משתלבים תלמידים חדשים", "חיי הפנימייה, אם יש"],
+    ask: ["איך עוזרים לתלמידים חדשים להשתלב?", "אילו פעילויות חברתיות יש במהלך השנה?"],
     icon: '<circle cx="14" cy="14" r="5" /><circle cx="30" cy="14" r="5" /><path d="M4 34 C4 26 9 22 14 22 C19 22 22 25 22 29" /><path d="M22 29 C22 25 25 22 30 22 C35 22 40 26 40 34" /><circle cx="22" cy="24" r="4" /><path d="M14 38 C14 33 17 30 22 30 C27 30 30 33 30 38" />' },
-  c: { name: "מקום עם משמעות", c: "p3",
-    text: "חשוב לך שבית הספר יהיה יותר ממקום שלומדים בו. יש לך רצון לגבש זהות, להתחבר לערכים ולגלות את הדרך שלך בעולם.",
+  c: { name: "מקום להשאיר חותם", tag: "מקום לשאלות? בהחלט.", c: "p3",
+    text: "בשבילכם בית ספר הוא יותר ממקום שלומדים בו. אתם רוצים לגבש זהות, להתחבר לערכים, לתרום ולמצוא את הדרך שלכם.",
     check: ["התפיסה החינוכית והרוחנית", "האווירה הערכית והתורנית", "התנדבות ומעורבות חברתית"],
     ask: ["איך הערכים שלכם באים לידי ביטוי ביום־יום?", "אילו הזדמנויות יש לתלמידים לתרום ולהשפיע?"],
-    icon: '<circle cx="22" cy="22" r="16" /><path d="M22 10 L26 22 L22 34 L18 22 Z" /><circle cx="22" cy="22" r="1.5" />' },
-  d: { name: "מקום להביא את עצמי", c: "p4",
-    text: "חשוב לך לגלות את הכישרונות שלך, להתנסות, ליצור ולבחור. כדאי לך לחפש מקום שנותן מרחב ליוזמה, לסקרנות ולביטוי אישי.",
-    check: ["מסלולים ומגמות ייחודיים", "אפשרויות בחירה", "למידה מעשית ויצירתית", "חוגים ויוזמות תלמידים"],
-    ask: ["איפה יש לתלמידים אפשרות לבחור וליזום?", "איך אוכל לפתח אצלכם את תחומי העניין שלי?"],
-    icon: '<path d="M22 6 L25 17 L36 20 L25 23 L22 34 L19 23 L8 20 L19 17 Z" /><path d="M35 30 L36.5 34 L40 35 L36.5 36 L35 40 L33.5 36 L30 35 L33.5 34 Z" />' },
-  e: { name: "מקום שרואה אותי", c: "p5",
-    text: "חשוב לך להרגיש שרואים אותך, מקשיבים לך ומאמינים בך. כדאי לך לחפש סביבה שתעניק לך ביטחון ותאפשר לך להתפתח מתוך קשר אישי.",
-    check: ["הקשר בין הצוות לתלמידים", "ליווי אישי ורגשי", "מענים לימודיים מותאמים", "תחושת הביטחון במוסד"],
-    ask: ["למי אוכל לפנות כשאני מתמודד עם קושי?", "איך אתם מצליחים להכיר כל תלמיד באופן אישי?"],
-    icon: '<path d="M4 22 C10 12 16 9 22 9 C28 9 34 12 40 22 C34 32 28 35 22 35 C16 35 10 32 4 22 Z" /><circle cx="22" cy="22" r="6" /><circle cx="22" cy="22" r="1.5" />' }
+    icon: '<circle cx="22" cy="22" r="16" /><circle cx="22" cy="22" r="11" /><path d="M16 23 L20 27 L28 18" />' },
+  d: { name: "מקום לחשוב מחוץ לקופסה", tag: "רק מי אמר שצריך קופסה?", c: "p4",
+    text: "חשוב לכם לגלות את הכישרונות שלכם, להתנסות, ליצור ולבחור. חפשו מקום שנותן מרחב ליוזמה, לסקרנות ולביטוי אישי.",
+    check: ["מסלולים ומגמות ייחודיים", "אפשרויות בחירה", "למידה מעשית ויצירתית", "חוגים ויוזמות של תלמידים"],
+    ask: ["איפה יש לתלמידים אפשרות לבחור וליזום?", "איך אפשר לפתח אצלכם את תחומי העניין שלי?"],
+    icon: '<path d="M8 20 L22 13 L36 20 L36 34 L22 41 L8 34 Z" /><path d="M8 20 L22 27 L36 20" /><path d="M22 27 V41" /><path d="M22 9 V3" /><path d="M31 11 L35 6" /><path d="M13 11 L9 6" />' },
+  e: { name: "מקום לגדול", tag: "לגדול? מקום. ברור.", c: "p5",
+    text: "חשוב לכם להרגיש שרואים אתכם, מקשיבים לכם ומאמינים בכם. חפשו סביבה שתיתן לכם ביטחון ותאפשר לכם לגדול מתוך קשר אישי.",
+    check: ["הקשר בין הצוות לתלמידים", "ליווי אישי ורגשי", "מענים לימודיים מותאמים", "תחושת ביטחון במקום"],
+    ask: ["למי אפשר לפנות כשקשה?", "איך אתם מכירים כל תלמיד ותלמידה באופן אישי?"],
+    icon: '<path d="M22 40 V20" /><path d="M22 26 C22 18 16 14 8 14 C8 22 14 26 22 26 Z" /><path d="M22 20 C22 12 28 8 36 8 C36 16 30 20 22 20 Z" /><path d="M12 40 H32" />' }
 };
 const KEYS = ["a","b","c","d","e"];
 const HEB = { a: "א׳", b: "ב׳", c: "ג׳", d: "ד׳", e: "ה׳" };
 
 const Q = [
-  ["מה יגרום לי לקום בבוקר בכיף לבית הספר?", [
-    "הידיעה שאני הולך ללמוד דברים מעניינים ומאתגרים", "לפגוש את החברים שלי ולהרגיש חלק מחבורה",
-    "להיות במקום שיש בו משמעות וערכים שאני מתחבר אליהם", "לעסוק בדברים שאני אוהב ולפתח את הכישרונות שלי",
-    "לדעת שיש מי שמכיר אותי ושם לב אליי"]],
-  ["איך נראה יום לימודים מוצלח מבחינתי?", [
+  ["מה יגרום לי לקום בבוקר בכיף?", [
+    "שיעורים מעניינים שמאתגרים אותי", "החבר׳ה שמחכים לי",
+    "מקום עם ערכים שמדברים אליי", "זמן לתחביבים ולכישרונות שלי",
+    "יש שם מי שמכיר אותי ושם לב אליי"]],
+  ["יום מוצלח בבית הספר הוא יום ש...", [
     "למדתי משהו חדש והרגשתי שהתקדמתי", "צחקתי, נהניתי ועשיתי דברים עם חברים",
-    "הייתה לי שיחה משמעותית או עשייה ערכית", "יצרתי, יזמתי או התנסיתי במשהו חדש", "הרגשתי בנוח להיות מי שאני"]],
-  ["מה הכי חשוב לי שיהיה בבית הספר הבא שלי?", [
+    "הייתה לי שיחה משמעותית או עשייה ערכית", "יצרתי, יזמתי או ניסיתי משהו חדש", "הרגשתי בנוח להיות מי שאני"]],
+  ["מה חייב להיות במקום הבא שלי?", [
     "מגמות מעניינות ורמה לימודית גבוהה", "חיי חברה עשירים ואווירה טובה",
-    "זהות חינוכית וערכית שאני מזדהה איתה", "אפשרויות בחירה ומסלולים מיוחדים", "יחס אישי ומענה לצרכים שלי"]],
-  ["כשאני חושב על המורים שלי, הייתי רוצה שהם...", [
-    "יאתגרו אותי וידחפו אותי להצליח", "ייצרו אווירה טובה ומגבשת בכיתה",
-    "יהיו עבורי דמויות משמעותיות ומעוררות השראה", "יעודדו אותי לחשוב אחרת וליזום", "יכירו אותי ויהיו שם בשבילי כשאצטרך"]],
-  ["מה הייתי רוצה לעשות מעבר לשיעורים הרגילים?", [
-    "להשתתף בתוכניות העשרה ומצוינות", "לצאת לטיולים, מסעות ופעילויות חברתיות",
-    "להתנדב, לתרום ולהעמיק בעולם הערכים שלי", "לעסוק בספורט, מוזיקה, אמנות, טכנולוגיה או יזמות",
-    "ליהנות מזמן וממרחב להתפתחות בקצב שלי"]],
-  ["כשאסיים את התיכון, מה הכי הייתי רוצה להגיד?", [
-    "הגעתי להישגים שאני גאה בהם", "רכשתי חברים שילוו אותי לאורך החיים",
-    "גיבשתי את הזהות שלי ואת הדרך שבה אני מאמין", "גיליתי במה אני טוב ומה אני אוהב לעשות",
-    "צברתי ביטחון בעצמי ולמדתי להאמין ביכולות שלי"]]
+    "זהות חינוכית וערכית שמתאימה לי", "מסלולים מיוחדים והרבה אפשרויות בחירה", "יחס אישי ומענה לצרכים שלי"]],
+  ["המורים שהייתי רוצה לפגוש...", [
+    "מאתגרים אותי ודוחפים אותי להצליח", "יוצרים כיתה מגובשת ואווירה טובה",
+    "דמויות משמעותיות שאפשר ללמוד מהן", "מעודדים לחשוב אחרת וליזום", "מכירים אותי ונמצאים שם כשצריך"]],
+  ["ומה קורה מחוץ לכיתה?", [
+    "תוכניות העשרה ומצוינות", "טיולים, מסעות ופעילויות חברתיות",
+    "התנדבות, תרומה והעמקה בעולם הערכים", "ספורט, מוזיקה, אמנות, טכנולוגיה או יזמות",
+    "זמן ומרחב להתפתח בקצב שלי"]],
+  ["סיימתי תיכון. מה הכי הייתי רוצה להגיד?", [
+    "הגעתי להישגים שאני גאה בהם", "יש לי חברים לכל החיים",
+    "גיבשתי זהות ודרך שמתאימה לי", "גיליתי את הכישרונות ואת התשוקות שלי",
+    "צברתי ביטחון ולמדתי להאמין ביכולות שלי"]]
 ];
 
-const CHECKLIST = ["מרחק מהבית וזמן נסיעה", "הסעות ותחבורה ציבורית", "פנימייה – האם יש, ואיך היא נראית",
-  "תנאי קבלה ומועדי הרשמה", "ימי פתוחים ומפגשי היכרות", "עלויות ותשלומי הורים",
+const CHECKLIST = ["מרחק מהבית וזמן נסיעה", "הסעות ותחבורה ציבורית", "פנימייה: האם יש, ואיך היא נראית",
+  "תנאי קבלה ומועדי הרשמה", "ימים פתוחים ומפגשי היכרות", "עלויות ותשלומי הורים",
   "גודל בית הספר ומספר תלמידים בכיתה", "שעות הלימודים ומבנה השבוע"];
 const COMPASS = [
-  ["c1", "שני הדברים שהכי חשובים לי בבית הספר הבא שלי:"],
-  ["c2", "דבר אחד שאני לא רוצה לוותר עליו:"],
-  ["c3", "שאלות שאני רוצה לשאול את נציגי בתי הספר:"],
-  ["c4", "משהו שאני עדיין מתלבט לגביו:"]
+  ["c1", "שני הדברים שהכי חשובים לי במקום הבא שלי:"],
+  ["c2", "דבר אחד שאני לא מוותר/ת עליו:"],
+  ["c3", "שאלות שאני רוצה לשאול בדוכנים:"],
+  ["c4", "משהו שאני עדיין מתלבט/ת לגביו:"]
 ];
 
 const store = {
@@ -204,6 +236,7 @@ function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.fl
 const icon = (k, cls = "") => `<svg class="${cls}" viewBox="0 0 44 44" fill="none" stroke="var(--${P[k].c})" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${P[k].icon}</svg>`;
 const app = document.getElementById("app");
 const esc = s => s.replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+const go = step => { S.step = step; save(); render(); window.scrollTo(0, 0); };
 
 function render() {
   if (S.step === 0) return renderIntro();
@@ -213,17 +246,21 @@ function render() {
 
 function renderIntro() {
   app.innerHTML = `
-    <section class="hero">
-      <span class="tag">בבנימין עושים מקום לכולם</span>
-      <h1>בחן את עצמך – איפה המקום שלי?</h1>
-      <p>לפניך שש שאלות קצרות שיעזרו לך להבין מה באמת חשוב לך בבית הספר הבא שלך. בכל שאלה אפשר לבחור עד שתי תשובות שהכי מדברות אליך.</p>
-      <p class="muted">בסוף תקבלו פרופיל אישי, רשימת דברים שכדאי לבדוק ושאלות מוכנות לדוכנים של בתי הספר.</p>
+    <section class="stack">
+      <div class="chairs"><div class="card-navy">
+        <span class="line">נו, כבר יש לכם</span>
+        <span class="big">מקום</span>
+        <span class="line y">לשנה הבאה?</span>
+        <p>כולם מדברים על מקום. אבל על איזה מקום בדיוק? שש שאלות קצרות יעזרו לכם לגלות מה המקום שלכם, ובסוף תקבלו פרופיל אישי ושאלות מוכנות לדוכנים.</p>
+        <span class="event" style="flex-direction:column"><b>עושים מקום – כנס מוסדות החינוך העל־יסודי בבנימין</b><span>15.12.26 · ה׳ בטבת</span></span>
+      </div></div>
+      <p>בכל שאלה אפשר לבחור עד שתי תשובות. אין תשובות נכונות או לא נכונות, יש מקום לכל אחד ואחת.</p>
       <div class="chips">${KEYS.map(k => `<span class="chip" style="background:var(--${P[k].c}-soft);color:var(--${P[k].c})">${icon(k)}${P[k].name}</span>`).join("")}</div>
-      <div class="row"><button class="btn" id="start">${S.picks.some(p => p.length) ? "להמשיך מאיפה שעצרתי" : "בואו נתחיל"}</button></div>
+      <div class="row"><button class="btn" id="start">${S.picks.some(p => p.length) ? "להמשיך מאיפה שעצרתי" : "יאללה, מתחילים"}</button></div>
     </section>`;
   document.getElementById("start").onclick = () => {
     const firstEmpty = S.picks.findIndex(p => !p.length);
-    S.step = firstEmpty === -1 ? Q.length + 1 : firstEmpty + 1; save(); render(); window.scrollTo(0, 0);
+    go(firstEmpty === -1 ? Q.length + 1 : firstEmpty + 1);
   };
 }
 
@@ -234,7 +271,7 @@ function renderQuestion(i) {
     <section class="stack">
       <div class="progress" aria-hidden="true">${Q.map((_, j) => `<span class="${j <= i ? "done" : ""}"></span>`).join("")}</div>
       <div class="qhead"><span class="eyebrow">שאלה ${i + 1} מתוך ${Q.length}</span><span class="muted" style="font-size:.95rem">אפשר לבחור עד שתי תשובות</span></div>
-      <h2 id="qt">${title}</h2>
+      <div class="qtitle"><h2 id="qt">${title}</h2><span class="qmarks" aria-hidden="true"><span>?</span><span>?</span><span>?</span></span></div>
       <div class="options" role="group" aria-labelledby="qt">
         ${S.order[i].map(o => {
           const on = picks.includes(o);
@@ -242,10 +279,10 @@ function renderQuestion(i) {
           return `<button class="opt${locked ? " locked" : ""}" data-o="${o}" aria-pressed="${on}"><span class="box"></span><span>${opts[o]}</span></button>`;
         }).join("")}
       </div>
-      <p class="hint muted" id="hint">${picks.length >= 2 ? "בחרת שתי תשובות. כדי להחליף, בטלו אחת מהן." : ""}</p>
+      <p class="hint muted" id="hint">${picks.length >= 2 ? "בחרתם שתי תשובות. כדי להחליף, בטלו אחת מהן." : ""}</p>
       <div class="nav">
         <button class="btn ghost" id="back">הקודם</button>
-        <button class="btn" id="next" ${picks.length ? "" : "disabled"}>${i === Q.length - 1 ? "לפרופיל שלי" : "הבא"}</button>
+        <button class="btn" id="next" ${picks.length ? "" : "disabled"}>${i === Q.length - 1 ? "למקום שלי" : "הבא"}</button>
       </div>
     </section>`;
   app.querySelectorAll(".opt").forEach(b => b.onclick = () => {
@@ -256,8 +293,8 @@ function renderQuestion(i) {
     save(); renderQuestion(i);
     app.querySelector(`.opt[data-o="${o}"]`)?.focus();
   });
-  document.getElementById("back").onclick = () => { S.step--; save(); render(); window.scrollTo(0, 0); };
-  document.getElementById("next").onclick = () => { S.step++; save(); render(); window.scrollTo(0, 0); };
+  document.getElementById("back").onclick = () => go(S.step - 1);
+  document.getElementById("next").onclick = () => go(S.step + 1);
 }
 
 function profileCard(k, kicker) {
@@ -266,10 +303,10 @@ function profileCard(k, kicker) {
   return `
     <article class="profile" style="border-color:${col}">
       <div class="ph">${icon(k)}<div><div class="kicker" style="color:${col}">${kicker}</div><h3>${p.name}</h3></div></div>
-      <p>${p.text}</p>
+      <p><strong>${p.tag}</strong> ${p.text}</p>
       <div class="cols">
-        <div><h4>מה כדאי לך לבדוק?</h4><ul>${p.check.map(c => `<li>${c}</li>`).join("")}</ul></div>
-        <div class="ask"><h4>מה כדאי לך לשאול בדוכן?</h4>
+        <div><h4>מה כדאי לבדוק?</h4><ul>${p.check.map(c => `<li>${c}</li>`).join("")}</ul></div>
+        <div class="ask"><h4>מה לשאול בדוכן?</h4>
           ${p.ask.map(a => `<div class="ask-row"><q>${a}</q><button class="add" style="color:${col}" data-q="${esc(a)}" ${inCompass.includes(a) ? "disabled" : ""}>${inCompass.includes(a) ? "נוסף ✓" : "+ למצפן"}</button></div>`).join("")}
         </div>
       </div>
@@ -286,11 +323,15 @@ function renderResults() {
 
   app.innerHTML = `
     <section class="stack">
-      <span class="eyebrow">הפענוח – מה הבחירות שלי מספרות עליי?</span>
-      <h1>${top.length === 1 ? "המקום שלי: " + P[top[0]].name : "המקום שלי משלב כמה דברים"}</h1>
+      <div class="chairs"><div class="card-navy">
+        <div class="awards" aria-hidden="true">${AWARDS}</div>
+        <span class="line">${top.length === 1 ? "המקום שלכם:" : "יש לכם מקום"}</span>
+        <span class="big" style="font-size:clamp(2.2rem, 9vw, 3.4rem)">${top.length === 1 ? P[top[0]].name : "ליותר מדבר אחד"}</span>
+        <span class="line y">${top.length === 1 ? P[top[0]].tag : "וזה בדיוק טוב."}</span>
+      </div></div>
 
       <div class="panel">
-        <h3>פרופיל הבחירה שלי</h3>
+        <h3>פרופיל המקום שלי</h3>
         <div class="bars">
           ${KEYS.map(k => `<div class="bar">${icon(k)}
             <div class="lbl"><span>${HEB[k]} – ${P[k].name}</span><div class="track"><div class="fill" style="width:${count[k] / scale * 100}%;background:var(--${P[k].c})"></div></div></div>
@@ -298,35 +339,39 @@ function renderResults() {
         </div>
       </div>
 
-      ${top.map(k => profileCard(k, top.length > 1 ? "אחד הדברים הבולטים אצלך" : "בחרת בעיקר " + HEB[k])).join("")}
+      ${top.map(k => profileCard(k, top.length > 1 ? "אחד המקומות הבולטים אצלכם" : "בחרתם בעיקר " + HEB[k])).join("")}
 
       <div class="panel">
-        <h3>${top.length > 1 ? "קיבלת את התוצאה הגבוהה ביותר בכמה קטגוריות?" : "וגם זה חלק ממך"}</h3>
-        <p>${top.length > 1 ? "מעולה! " : ""}כולנו מורכבים מכמה רצונות וצרכים. יכול להיות שחשוב לך גם להצטיין וגם להרגיש שייך, או גם לפתח את הכישרונות שלך וגם לגדול בסביבה ערכית.</p>
-        <p>המטרה היא לא להכניס אותך למשבצת, אלא לעזור לך להבין מה לחפש.</p>
+        <h3>${top.length > 1 ? "יצא לכם יותר ממקום אחד? מעולה." : "ויש מקום גם לשאר"}</h3>
+        <p>כולנו מורכבים מכמה רצונות וצרכים. אפשר לשאוף גבוה וגם להרגיש שייכים, לחשוב מחוץ לקופסה וגם לגדול בסביבה ערכית.</p>
+        <p>המטרה היא לא לשים אתכם במשבצת. המטרה היא לעזור לכם לדעת מה לחפש.</p>
       </div>
 
       <div>
-        <h3 style="margin-bottom:8px">שאר הפרופילים</h3>
+        <h3 style="margin-bottom:8px">שאר המקומות</h3>
         ${rest.map(k => `<details class="more"><summary>${icon(k)}<span>${P[k].name}</span><span class="muted" style="font-weight:400">· ${count[k]} בחירות</span></summary>${profileCard(k, HEB[k])}</details>`).join("")}
       </div>
 
       <div class="panel" id="compass">
-        <h2>רגע לפני שיוצאים לדוכנים – המצפן האישי שלי</h2>
+        <h2>רגע לפני הדוכנים: המצפן האישי שלי</h2>
         <p class="muted">מה שתכתבו כאן נשמר בדפדפן הזה. אפשר להעתיק הכול ולשמור בטלפון.</p>
         ${COMPASS.map(([id, l]) => `<div class="field"><label for="${id}">${l}</label><textarea id="${id}" rows="${id === "c3" ? 4 : 2}">${esc(compass[id] || "")}</textarea></div>`).join("")}
         <div class="row"><button class="btn small" id="copy">העתקת המצפן</button><span class="toast" id="toast" role="status"></span></div>
       </div>
 
       <div class="panel">
-        <h2>צ׳ק ליסט פרקטי – לכולם</h2>
-        <p class="muted">בלי קשר לפרופיל, את הדברים האלה כדאי לבדוק בכל בית ספר.</p>
+        <h2>צ׳ק ליסט פרקטי לכולם</h2>
+        <p class="muted">בלי קשר למקום שיצא לכם, את הדברים האלה כדאי לבדוק בכל בית ספר.</p>
         <div class="checklist">
           ${CHECKLIST.map((c, j) => `<label><input type="checkbox" id="ck${j}" ${checks[j] ? "checked" : ""}><span>${c}</span></label>`).join("")}
         </div>
       </div>
 
-      <p class="closing">יש הרבה בתי ספר טובים. עכשיו הזמן לגלות מה הופך בית ספר לטוב בשבילך.</p>
+      <div class="chairs"><div class="card-navy closing">
+        <span class="line">יש הרבה בתי ספר טובים.</span>
+        <span class="line y">עכשיו הזמן למצוא את המקום שטוב בשבילכם.</span>
+        <span class="event" style="justify-content:center">בבנימין <b>עושים מקום</b> לכולם</span>
+      </div></div>
       <div class="row" style="justify-content:center">
         <button class="btn ghost small" id="edit">לשנות תשובות</button>
         <button class="btn ghost small" id="restart">להתחיל מחדש</button>
@@ -339,22 +384,42 @@ function renderResults() {
     const q = b.dataset.q, ta = document.getElementById("c3");
     ta.value = (ta.value.trim() ? ta.value.trimEnd() + "\n" : "") + "• " + q;
     compass.c3 = ta.value; store.set("compass", compass);
-    app.querySelectorAll(`.add`).forEach(x => { if (x.dataset.q === q) { x.disabled = true; x.textContent = "נוסף ✓"; } });
+    app.querySelectorAll(".add").forEach(x => { if (x.dataset.q === q) { x.disabled = true; x.textContent = "נוסף ✓"; } });
   });
   document.getElementById("copy").onclick = () => {
-    const text = "המצפן האישי שלי\n" + (top.length ? "הפרופיל שלי: " + top.map(k => P[k].name).join(" + ") + "\n\n" : "\n") +
+    const text = "המצפן האישי שלי\n" + (top.length ? "המקום שלי: " + top.map(k => P[k].name).join(" + ") + "\n\n" : "\n") +
       COMPASS.map(([id, l]) => l + "\n" + (document.getElementById(id).value.trim() || "—")).join("\n\n");
     const toast = document.getElementById("toast");
     navigator.clipboard.writeText(text).then(() => { toast.textContent = "הועתק"; },
       () => { const ta = document.getElementById("c1"); ta.focus(); ta.select(); toast.textContent = "ההעתקה לא עבדה כאן. סמנו את הטקסט והעתיקו ידנית."; });
   };
-  document.getElementById("edit").onclick = () => { S.step = 1; save(); render(); window.scrollTo(0, 0); };
+  document.getElementById("edit").onclick = () => go(1);
   document.getElementById("restart").onclick = function () {
     if (this.dataset.armed) {
-      S = { step: 0, picks: Q.map(() => []), order: Q.map(() => shuffle([0,1,2,3,4])) }; save(); render(); window.scrollTo(0, 0);
-    } else { this.dataset.armed = "1"; this.textContent = "בטוח? לחצו שוב לאיפוס התשובות"; }
+      S = { step: 0, picks: Q.map(() => []), order: Q.map(() => shuffle([0,1,2,3,4])) }; go(0);
+    } else { this.dataset.armed = "1"; this.textContent = "בטוח? לחצו שוב לאיפוס"; }
   };
 }
+
+// Folding-chair pattern from the campaign poster, drawn as an SVG tile
+function chair(x, y, r, c, o) {
+  return `<g transform="translate(${x} ${y}) rotate(${r} 26 32)" opacity="${o}">
+    <rect x="12" y="2" width="28" height="20" rx="4" fill="${c}"/>
+    <rect x="12" y="18" width="4" height="44" rx="2" fill="${c}"/><rect x="36" y="18" width="4" height="44" rx="2" fill="${c}"/>
+    <path d="M6 32 H46 L42 40 H10 Z" fill="${c}"/>
+    <path d="M14 40 L38 62 M38 40 L14 62" stroke="${c}" stroke-width="4" stroke-linecap="round"/></g>`;
+}
+const CH = [["#3b7ddd",.9],["#8cbcec",.8],["#5aa63c",.85],["#b4d69a",.85],["#f7c234",.85]];
+const tile = `<svg xmlns="http://www.w3.org/2000/svg" width="230" height="230" viewBox="0 0 230 230">${[
+  [8,6,-18,0],[92,0,14,2],[168,18,-8,4],[30,82,22,3],[118,78,-24,1],[188,104,16,2],[4,158,8,4],[80,160,-12,0],[150,168,26,3]
+].map(([x,y,r,i]) => chair(x, y, r, CH[i][0], CH[i][1])).join("")}</svg>`;
+document.documentElement.style.setProperty("--chairs", `url("data:image/svg+xml,${encodeURIComponent(tile)}")`);
+
+// Medals and trophy from the campaign video
+const AWARDS = `
+<svg viewBox="0 0 44 44"><path d="M15 4 L22 18 L29 4" stroke="#3b7ddd" stroke-width="5" fill="none"/><circle cx="22" cy="28" r="12" fill="#f7c234"/><text x="22" y="33" text-anchor="middle" font-family="Fredoka, sans-serif" font-weight="700" font-size="14" fill="#1d4562">1</text></svg>
+<svg viewBox="0 0 44 44"><path d="M12 6 H32 V16 C32 23 27 27 22 27 C17 27 12 23 12 16 Z" fill="#f7c234"/><path d="M12 9 H6 C6 16 9 18 12 18 M32 9 H38 C38 16 35 18 32 18" stroke="#f7c234" stroke-width="3" fill="none"/><rect x="19" y="27" width="6" height="7" fill="#f7c234"/><rect x="13" y="34" width="18" height="6" rx="2" fill="#3b7ddd"/></svg>
+<svg viewBox="0 0 44 44"><circle cx="22" cy="18" r="13" fill="#5aa63c"/><circle cx="22" cy="18" r="8" fill="#b4d69a"/><path d="M15 29 L12 42 L18 38 L22 42 L22 30 M29 29 L32 42 L26 38 L22 42" fill="#5aa63c"/></svg>`;
 
 document.documentElement.dir = "rtl";
 document.documentElement.lang = "he";
